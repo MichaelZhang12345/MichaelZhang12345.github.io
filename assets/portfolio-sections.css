@@ -1,0 +1,379 @@
+/* Inventions overview and its three project detail pages. */
+.inv-overview-intro { padding-top: 36px; padding-bottom: 24px; }
+.inv-overview-intro h1 { margin-top: 0; font-size: clamp(58px, 4.5vw, 64px); }
+.inv-overview-description { max-width: 860px; margin-top: 14px; }
+.inv-overview-description p { color: var(--muted); font: 15px/1.75 var(--sans); }
+.inv-overview-nav { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); }
+.inv-overview-nav a { display: inline-flex; align-items: center; gap: 8px; min-height: 38px; font-size: 11px; text-decoration: none; }
+.inv-overview-nav span { color: var(--rust); font: 16px var(--serif); }
+.inv-overview-nav a:hover { color: var(--rust); }
+.inv-overview-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 48px; padding-bottom: 72px; }
+.inv-overview-card { min-width: 0; border: 1px solid var(--line); background: var(--white); box-shadow: 0 12px 32px #20352e08; }
+.inv-overview-card:nth-child(1) { background: #f4eee3; }
+.inv-overview-card:nth-child(3) { background: #edf1e7; }
+.inv-chapter-heading { display: flex; align-items: center; gap: 26px; padding: 28px 36px; border-bottom: 1px solid var(--line); }
+.inv-chapter-number { flex-shrink: 0; color: var(--rust); font: 58px/1 var(--serif); letter-spacing: -.06em; }
+.inv-chapter-heading .eyebrow { margin-bottom: 9px; }
+.inv-chapter-heading h2 { font-size: clamp(30px, 3.5vw, 42px); }
+.inv-overview-row { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); grid-template-areas: 'visual copy'; gap: 48px; align-items: center; padding: 36px; }
+.inv-overview-card--reverse .inv-overview-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); grid-template-areas: 'copy visual'; }
+.inv-overview-visual { grid-area: visual; position: relative; min-width: 0; padding: 9px 0 0 9px; }
+.inv-overview-visual::before { content: ''; position: absolute; top: 0; left: 0; width: 78%; height: 72%; border: 1px solid #b6c2ae; pointer-events: none; }
+.inv-overview-figure { position: relative; background: var(--white); border: 1px solid var(--line); box-shadow: 0 10px 22px #20352e12; }
+.inv-overview-media { position: relative; display: block; aspect-ratio: 4 / 3; overflow: hidden; background: var(--sage); }
+.inv-overview-media > img { width: 100%; height: 100%; object-fit: cover; }
+.inv-video-preview { background: #192820; }
+.inv-video-preview > img { object-fit: contain; }
+.inv-overview-figure > figcaption { padding: 13px 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+.inv-preview-play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: grid; place-items: center; width: 60px; height: 60px; padding-left: 4px; border: 1px solid #ffffffa0; border-radius: 50%; background: #20352ec9; color: white; font-size: 21px; box-shadow: 0 5px 20px #0003; }
+.inv-video-preview:hover .inv-preview-play { background: var(--rust); }
+.inv-overview-copy { grid-area: copy; min-width: 0; padding: 14px 4px; }
+.inv-overview-copy .inv-overview-summary { color: var(--ink); font: 23px/1.65 var(--serif); }
+.inv-overview-copy .button { margin-top: 30px; }
+#camping-life .inv-chapter-number { font-size: 46px; }
+#camping-life .inv-chapter-heading h2 { font-size: clamp(27px, 2.7vw, 34px); }
+#camping-life .inv-overview-row { grid-template-columns: minmax(0, .9fr) minmax(0, 1.2fr); gap: 40px; padding: 30px 36px; }
+#camping-life .inv-overview-visual { width: 100%; max-width: 410px; justify-self: start; }
+#camping-life .inv-overview-media { aspect-ratio: auto; }
+#camping-life .inv-overview-media > img { height: auto; object-fit: contain; }
+#camping-life .inv-overview-copy { padding: 0; }
+#camping-life .inv-overview-summary { font: 15px/1.8 var(--sans); color: var(--muted); }
+#camping-life .inv-overview-summary + .inv-overview-summary { margin-top: 12px; }
+#camping-life .inv-overview-copy .button { margin-top: 22px; }
+#camping .inv-overview-summary { font: 15px/1.8 var(--sans); color: var(--muted); }
+#camping .inv-overview-summary + .inv-overview-summary { margin-top: 12px; }
+#camping .inv-overview-copy .button { margin-top: 22px; }
+#camping .inv-overview-row { padding-block: 26px; }
+#camping .inv-overview-visual { width: 92%; justify-self: end; }
+#camping .inv-overview-copy { padding: 0; }
+#camping .inv-video-preview { aspect-ratio: 16 / 9; }
+#camping .inv-video-preview > img { object-fit: cover; object-position: center; }
+#camping .inv-product-thumbs { margin-top: 12px; }
+#outdoor .inv-overview-summary { font: 15px/1.8 var(--sans); color: var(--muted); }
+#outdoor .inv-overview-summary + .inv-overview-summary { margin-top: 28px; }
+#outdoor .inv-overview-copy { padding: 0; }
+#outdoor .inv-overview-row { grid-template-columns: minmax(0, .9fr) minmax(0, 1.2fr); gap: 40px; padding-block: 26px; }
+#outdoor .inv-overview-visual { width: 94%; justify-self: start; }
+#outdoor .inv-overview-copy .button { margin-top: 22px; }
+#outdoor .inv-video-preview { aspect-ratio: 16 / 9; }
+#outdoor .inv-video-preview > img { object-fit: cover; object-position: center; }
+.inv-chapter-subtitle { margin-top: 12px; color: var(--muted); font-size: 16px; line-height: 1.6; }
+#designs .inv-overview-summary { font: 15px/1.8 var(--sans); color: var(--muted); }
+#designs .inv-overview-summary + .inv-overview-summary { margin-top: 24px; }
+#designs .inv-overview-copy { padding: 0; }
+#designs .inv-overview-copy .button { margin-top: 24px; }
+#designs .inv-overview-row { padding-block: 26px; }
+#designs .inv-overview-visual { width: 84%; justify-self: end; }
+#designs .inv-overview-media { aspect-ratio: 3 / 2; }
+#designs .inv-overview-media > img { object-fit: contain; }
+#designs .inv-product-thumbs { margin-top: 12px; }
+#designs .inv-product-thumbs img { object-fit: contain; background: var(--sage); }
+.inv-product-thumbs { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 16px 0 0 24px; }
+.inv-product-thumbs figure { min-width: 0; padding: 8px; border: 1px solid var(--line); background: var(--white); box-shadow: 0 6px 14px #20352e0d; }
+.inv-product-thumbs img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.inv-product-thumbs figcaption { margin-top: 8px; color: var(--muted); font-size: 10px; }
+.inv-thumb-title { display: block; font-size: 11px; font-weight: 600; color: var(--ink); }
+.inv-thumb-description { display: block; margin-top: 4px; font-size: 10px; line-height: 1.5; }
+.inv-small-video { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; aspect-ratio: 16 / 9; background: var(--sage); color: var(--green); text-decoration: none; }
+.inv-small-video > span:last-child { font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+.inv-small-video-play { display: grid; place-items: center; width: 38px; height: 38px; padding-left: 3px; border: 1px solid #92a18b; border-radius: 50%; font-size: 14px; }
+.inv-small-video:hover { background: var(--sand); color: var(--rust); }
+.inv-small-video--poster { position: relative; display: block; overflow: hidden; background: var(--ink); }
+.inv-small-video--poster > img { width: 100%; height: 100%; object-fit: cover; }
+.inv-small-video--poster .inv-small-video-play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); background: #20352ed9; border-color: #ffffffa0; color: white; font-size: 16px; }
+.inv-small-video--poster .inv-small-video-label { position: absolute; left: 8px; bottom: 8px; padding: 3px 6px; background: #20352ee6; color: white; font-size: 9px; }
+.inv-small-video--poster:hover .inv-small-video-play { background: var(--rust); }
+.inv-small-video--diagram > img { object-fit: contain; background: white; }
+.inv-small-video--diagram .inv-small-video-play { left: auto; top: auto; right: 8px; bottom: 8px; transform: none; width: 28px; height: 28px; font-size: 12px; }
+.inv-thumb-title a { text-decoration: none; }
+.inv-thumb-title a:hover { color: var(--rust); text-decoration: underline; }
+@media (max-width: 880px) {
+  #camping-life .inv-overview-row { padding: 26px; gap: 28px; }
+  .inv-chapter-heading { padding: 24px; gap: 20px; }
+  .inv-overview-row { padding: 26px; gap: 28px; }
+  .inv-overview-copy .inv-overview-summary { font-size: 20px; }
+}
+@media (max-width: 640px) {
+  #designs .inv-overview-visual { width: 100%; justify-self: stretch; }
+  #outdoor .inv-overview-row { grid-template-columns: minmax(0, 1fr); grid-template-areas: 'visual' 'copy'; gap: 22px; padding: 22px; }
+  #outdoor .inv-overview-visual { width: 100%; }
+  #camping .inv-overview-visual { width: 100%; justify-self: stretch; }
+  #camping-life .inv-overview-row { grid-template-columns: minmax(0, 1fr); grid-template-areas: 'visual' 'copy'; padding: 22px; gap: 24px; }
+  #camping-life .inv-overview-visual { justify-self: center; max-width: 380px; }
+  .inv-overview-grid { gap: 28px; padding-bottom: 40px; }
+  .inv-chapter-heading { padding: 22px; gap: 16px; }
+  .inv-chapter-number { font-size: 44px; }
+  .inv-chapter-heading h2 { font-size: 29px; }
+  .inv-overview-row, .inv-overview-card--reverse .inv-overview-row { grid-template-columns: minmax(0, 1fr); grid-template-areas: 'visual' 'copy'; gap: 22px; padding: 22px; }
+  .inv-overview-copy { padding: 0; }
+  .inv-overview-nav { gap: 6px 20px; }
+  .inv-overview-copy .button { margin-top: 24px; }
+  .inv-product-thumbs { margin-left: 12px; }
+}
+.inv-detail-intro .inv-back { margin-bottom: 24px; }
+.inv-detail-intro h1 { font-size: clamp(40px, 5vw, 64px); }
+.product-design-page .inv-detail-intro .inv-back { border-bottom: 0; }
+.product-detail-return { padding-bottom: 48px; }
+.product-design-page .inv-detail-intro h1 { max-width: none; font-size: clamp(38px, 5vw, 68px); white-space: nowrap; }
+@media (max-width: 640px) {
+  .product-design-page .inv-detail-intro h1 { font-size: clamp(31px, 8vw, 42px); white-space: normal; }
+}
+.inv-detail-projects { padding-top: 32px; }
+.product-story { grid-column: 1 / -1; min-width: 0; border: 1px solid #a9b4a2; background: var(--white); }
+.product-story-heading { padding: 0; margin-bottom: 22px; }
+.product-story-heading .eyebrow { color: var(--rust); line-height: 1.6; }
+.product-story-heading h3 { margin-top: 12px; font-size: clamp(28px, 2.8vw, 34px); }
+.product-story-body { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 40px; padding: 32px; align-items: center; }
+.product-story-copy { min-width: 0; align-self: center; }
+.product-story-copy > p { font: 15px/1.8 var(--sans); color: var(--muted); }
+.product-story-copy > p + p { margin-top: 24px; }
+.product-patent { margin-top: 28px; padding: 16px 18px; border-left: 2px solid var(--rust); background: var(--sage); }
+.product-patent p { font-size: 13px; line-height: 1.8; color: var(--ink); }
+.product-story-media { min-width: 0; width: 100%; max-width: 460px; display: grid; gap: 18px; align-self: center; justify-self: center; }
+.product-story-media figure { min-width: 0; border: 1px solid var(--line); background: var(--sage); }
+.product-story-media a { display: block; }
+.product-story-media img { width: 100%; aspect-ratio: 16 / 9; object-fit: contain; }
+.product-story-media figcaption { padding: 12px 14px; border-top: 1px solid var(--line); background: var(--white); font-size: 11px; color: var(--muted); }
+@media (max-width: 760px) {
+  .product-story-body { grid-template-columns: 1fr; gap: 24px; padding: 22px; align-items: start; }
+  .product-story-copy, .product-story-media { align-self: start; }
+  .product-story-media { max-width: none; }
+  .product-story-heading { padding: 0; }
+}
+.cabin-detail-page .inv-detail-intro > p:last-of-type { font: 15px/1.8 var(--sans); }
+.cabin-detail-page .inv-detail-intro { padding-top: 38px; padding-bottom: 28px; }
+.cabin-detail-page .inv-detail-intro .inv-back { min-height: 0; margin-bottom: 30px; border-bottom: 0; }
+.cabin-detail-page .inv-detail-intro h1 { margin-top: 0; font-size: clamp(48px, 3.6vw, 52px); }
+.cabin-detail-page .inv-detail-intro > p { margin-top: 16px; }
+.cabin-detail-page .inv-detail-intro .page-jumps { margin-top: 22px; }
+.cabin-detail-page .inv-detail-intro .page-jumps a { min-height: 39px; padding: 6px 12px; font-weight: 400; }
+.cabin-detail-page #wooden-builds { padding-top: 32px; }
+.cabin-detail-page #wooden-builds > .section-heading,
+.cabin-detail-page #electronic-builds > .section-heading { align-items: baseline; gap: 18px; margin-bottom: 18px; }
+.cabin-detail-page #wooden-builds > .section-heading h2,
+.cabin-detail-page #electronic-builds > .section-heading h2 { margin: 0; font-size: 32px; line-height: 1.2; }
+.cabin-detail-page #wooden-builds > .section-heading > p,
+.cabin-detail-page #electronic-builds > .section-heading > p { max-width: none; font-size: 12px; }
+.cabin-detail-page .inv-card .card-copy { padding: 20px 22px; }
+.cabin-detail-page .inv-card .card-copy > p { font-size: 13px; }
+.cabin-detail-page .inv-card .card-media { aspect-ratio: 16 / 9; }
+.cabin-detail-page .inv-card--featured .card-media { min-height: 0; }
+.cabin-detail-page #wooden-builds #cabin { grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr); }
+.cabin-detail-page #wooden-builds #cabin .cabin-video-stack { min-width: 0; display: grid; align-content: center; justify-items: center; gap: 10px; padding: 20px; background: #eef2e9; }
+.cabin-detail-page #wooden-builds #cabin .cabin-video-link { position: relative; display: block; width: 88%; max-width: 350px; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--line); background: var(--white); }
+.cabin-detail-page #wooden-builds #cabin .cabin-video-link > img { width: 100%; height: 100%; object-fit: cover; }
+.cabin-detail-page .card-media > img { object-fit: cover; }
+.cabin-detail-page #wooden-builds .inv-project-grid { gap: 18px; }
+.cabin-detail-page #wooden-builds .card-copy { padding: 20px 22px; }
+.cabin-detail-page #wooden-builds .inv-card h3 { font-size: 23px; line-height: 1.25; }
+.cabin-detail-page #wooden-builds .inv-card--featured h3 { font-size: 30px; }
+.cabin-detail-page #wooden-builds .card-copy > .cabin-wood-kicker { margin-top: 0; margin-bottom: 12px; font-size: 10px; line-height: 1.6; color: var(--rust); }
+.cabin-detail-page #wooden-builds .card-copy > .cabin-wood-story { margin-top: 12px; font-size: 13px; line-height: 1.8; }
+.cabin-detail-page #wooden-builds #cabin .cabin-wood-story + .cabin-wood-story { margin-top: 22px; }
+.cabin-detail-page #wooden-builds .inv-card-actions { padding-top: 16px; }
+.cabin-system-stack { display: grid; gap: 28px; }
+.cabin-system { min-width: 0; border: 1px solid var(--line); background: var(--white); }
+.cabin-system--featured { border-color: #a9b4a2; background: #eef2e9; }
+.cabin-system-heading { padding: 24px 28px; border-bottom: 1px solid var(--line); }
+#solar .cabin-system-heading, #refrigerator .cabin-system-heading { border-bottom: 0; }
+#solar .cabin-system-heading, #refrigerator .cabin-system-heading { padding-bottom: 8px; }
+#solar .cabin-system-body, #refrigerator .cabin-system-body { padding-top: 14px; }
+.cabin-system-heading .eyebrow { margin: 0; color: var(--rust); font-size: 10px; line-height: 1.6; letter-spacing: .06em; }
+.cabin-system-heading h3 { margin-top: 8px; font-size: 30px; line-height: 1.25; }
+.cabin-system-body { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 32px; align-items: center; padding: 28px; }
+.cabin-system-video, .cabin-system-diagram { min-width: 0; }
+.cabin-system-diagram { width: 76%; max-width: 340px; margin: 20px auto 0; }
+#solar .cabin-system-body, #refrigerator .cabin-system-body { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: 'copy copy' 'video diagram'; align-items: start; gap: 24px; }
+#solar .cabin-system-copy, #refrigerator .cabin-system-copy { grid-area: copy; max-width: 880px; }
+#solar .cabin-system-diagram, #refrigerator .cabin-system-diagram { grid-area: diagram; width: 100%; max-width: none; margin: 0; }
+#solar .cabin-system-video, #refrigerator .cabin-system-video { grid-area: video; width: 100%; max-width: none; margin: 0; }
+.cabin-system-copy { min-width: 0; }
+.cabin-system-copy > .eyebrow { margin-bottom: 18px; color: var(--rust); }
+.cabin-system-copy > p:not(.eyebrow) { color: var(--muted); font-size: 15px; line-height: 1.8; }
+.cabin-system-copy > p + p:not(.eyebrow) { margin-top: 22px; }
+.cabin-system-video > figure, .cabin-system-diagram > figure { min-width: 0; border: 1px solid var(--line); background: var(--white); }
+.cabin-system-video .card-media, .cabin-diagram { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; }
+.cabin-system-video .card-media > img { width: 100%; height: 100%; object-fit: cover; }
+.cabin-diagram { background: white; }
+.cabin-diagram img { width: 100%; height: 100%; object-fit: contain; }
+.cabin-system-video figcaption, .cabin-system-diagram figcaption { padding: 8px 16px; border-top: 1px solid var(--line); font-size: 12px; }
+.cabin-system-video .text-link, .cabin-system-diagram .text-link { font-size: 12px; }
+.cabin-cup-placeholder { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); border: 1px dashed #abb8a3; background: #edf0e5; }
+.cabin-cup-placeholder .inv-placeholder { min-height: 160px; border-bottom: 0; }
+.cabin-cup-placeholder .card-copy { padding: 24px; }
+.cabin-cup-placeholder .card-copy h3 { font-size: 26px; }
+.cabin-detail-return { padding-bottom: 48px; }
+@media (max-width: 640px) {
+  .cabin-system-body, .cabin-cup-placeholder { grid-template-columns: 1fr; }
+  #solar .cabin-system-body, #refrigerator .cabin-system-body { grid-template-columns: 1fr; grid-template-areas: 'copy' 'video' 'diagram'; }
+  .cabin-system-body { padding: 20px; gap: 28px; }
+  .cabin-system-heading { padding: 22px; }
+}
+.camping-detail-page .inv-detail-intro { padding-top: 36px; padding-bottom: 24px; }
+.camping-detail-page .inv-detail-intro .inv-back { margin-bottom: 22px; }
+.camping-detail-page .inv-detail-intro h1 { margin-top: 0; font-size: clamp(50px, 3.8vw, 54px); }
+.camping-detail-page .inv-detail-intro .camping-detail-summary { max-width: 720px; margin-top: 16px; color: var(--muted); font: 15px/1.75 var(--sans); }
+.camping-detail-page .inv-detail-intro .page-jumps { margin-top: 18px; }
+.camping-detail-page .inv-detail-intro .page-jumps a { min-height: 38px; padding: 6px 12px; }
+.camping-video-note { margin-bottom: 28px; max-width: 720px; color: var(--muted); font-size: 13px; line-height: 1.8; }
+.camping-detail-page .inv-card .card-copy > p { font-size: 13px; line-height: 1.8; }
+.camping-detail-page .inv-card--featured .card-media { min-height: 0; aspect-ratio: 16 / 9; }
+.camping-detail-page .inv-card--featured .card-copy { padding: 28px; }
+.camping-detail-page .inv-card--featured h3 { font-size: 30px; }
+.camping-detail-page .card-media > img { object-fit: cover; }
+.camping-detail-return { padding-bottom: 48px; }
+.camping-detail-page #camp-cooking .inv-project-grid { gap: 18px; }
+.camping-detail-page #camp-cooking .card-copy { padding: 18px 20px; }
+.camping-detail-page #camp-cooking .inv-card h3 { font-size: 23px; line-height: 1.2; }
+.camping-detail-page #camp-cooking #bamboo-rice h3 { font: 600 22px/1.4 var(--sans); letter-spacing: .03em; }
+.camping-detail-page #camp-cooking .card-copy > .camping-food-story { margin-top: 10px; font-size: 13px; line-height: 1.75; }
+.camping-detail-page #camp-cooking .card-copy > .camping-food-story + .camping-food-story { margin-top: 22px; }
+.camping-detail-page #camp-cooking .inv-card-actions { padding-top: 14px; }
+.camping-detail-page #outdoor-builds .inv-project-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.camping-detail-page #outdoor-builds .card-media { aspect-ratio: 16 / 9; }
+.camping-detail-page #outdoor-builds .inv-project-grid { gap: 18px; }
+.camping-detail-page #outdoor-builds { padding-top: 30px; }
+.camping-detail-page #outdoor-builds > .section-heading { align-items: baseline; gap: 18px; margin-bottom: 20px; }
+.camping-detail-page #outdoor-builds > .section-heading h2 { margin: 0; font-size: 32px; line-height: 1.2; }
+.camping-detail-page #outdoor-builds > .section-heading > p { max-width: none; font-size: 12px; }
+.camping-detail-page #outdoor-builds .card-copy { padding: 18px 20px; }
+.camping-detail-page #outdoor-builds .card-copy > .eyebrow { margin-top: 0; margin-bottom: 10px; font-size: 10px; }
+.camping-detail-page #outdoor-builds .card-copy > p:not(.eyebrow) { margin-top: 10px; font-size: 13px; line-height: 1.75; }
+.camping-detail-page #outdoor-builds .inv-card h3 { font-size: 23px; line-height: 1.2; }
+.camping-detail-page #outdoor-builds .inv-card--featured h3 { font-size: 30px; }
+.camping-detail-page #outdoor-builds #tripod-chair h3 { font: 600 17px/1.4 var(--sans); letter-spacing: .03em; }
+.camping-detail-page #outdoor-builds .inv-card-actions { padding-top: 14px; }
+.camping-detail-page #outdoor-builds .card-copy > .camping-build-story + .camping-build-story { margin-top: 24px; }
+.camping-video-cover { display: block; text-decoration: none; }
+.camping-cover-play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: grid; place-items: center; width: 48px; height: 48px; padding-left: 3px; border: 1px solid #ffffffa0; border-radius: 50%; background: #20352ed9; color: white; font-size: 18px; }
+.camping-cover-label { position: absolute; left: 12px; bottom: 12px; padding: 6px 9px; background: #20352ee6; color: white; font-size: 11px; line-height: 1.4; }
+.camping-video-cover:hover .camping-cover-play { background: var(--rust); }
+@media (max-width: 640px) {
+  .camping-detail-page #outdoor-builds .inv-project-grid { grid-template-columns: 1fr; }
+}
+.inv-project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.inv-card .card-copy { padding: 22px; }
+.inv-card h3 { font-size: 26px; }
+.inv-card .card-media { aspect-ratio: 16 / 10; }
+.inv-placeholder { display: flex; flex-direction: column; gap: 12px; align-items: center; justify-content: center; height: 100%; background: #e8ecdf; color: var(--muted); border-bottom: 1px solid var(--line); }
+.inv-placeholder span { font-size: 10px; letter-spacing: .14em; }
+.inv-placeholder p { font-family: var(--serif); font-size: 24px; }
+.inv-card-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; margin-top: auto; padding-top: 20px; }
+.inv-card-actions .text-link { margin-top: 0; font-size: 11px; }
+.inv-pending { color: var(--muted); font-size: 11px; min-height: 44px; display: flex; align-items: center; }
+.inv-draft { color: var(--muted); }
+.inv-card .card-copy > p { font-size: 14px; line-height: 1.85; }
+.inv-card .card-copy > .inv-priority { color: var(--rust); font-size: 10px; margin-top: 0; margin-bottom: 12px; }
+.inv-card--featured { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.inv-card--featured .card-media { aspect-ratio: auto; min-height: 300px; }
+.inv-card--featured .card-media > img { width: 100%; height: 100%; object-fit: cover; }
+.inv-card--featured .card-copy { padding: 34px; }
+.inv-card--featured h3 { font-size: 34px; }
+.inv-card--featured .card-copy > p + p { margin-top: 16px; }
+.inv-card--featured { border-color: #a9b4a2; }
+@media (max-width: 880px) {
+  .inv-project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .inv-card--featured .card-copy { padding: 26px; }
+  .inv-card--featured h3 { font-size: 29px; }
+}
+@media (max-width: 640px) {
+  .inv-project-grid { grid-template-columns: 1fr; }
+  .inv-card--featured { grid-column: auto; display: flex; }
+  .inv-card--featured .card-media { aspect-ratio: 16 / 10; min-height: 0; }
+  .inv-card--featured .card-copy { padding: 22px; }
+}
+
+
+.thermal-study-copy { width: 100%; }
+.thermal-study-paragraph + .thermal-study-paragraph { margin-top: 26px; }
+.thermal-study-paragraph h3 { font: 600 16px/1.4 var(--sans); }
+.thermal-study-paragraph p { margin-top: 10px; color: var(--muted); font: 14px/1.85 var(--sans); }
+.thermal-study-copy > .thermal-study-note { margin-top: 24px; color: var(--muted); font-size: 12px; line-height: 1.7; }
+
+#designs .inv-chapter-heading h2, #thermal .inv-chapter-heading h2 { font-size: clamp(28px, 3.5vw, 42px); }
+#designs .inv-chapter-heading .eyebrow, #thermal .inv-chapter-heading .eyebrow { margin-bottom: 9px; }
+
+.research-overview-card, .research-overview-card:nth-child(1) { width: 100%; background: #f4eee3; }
+#thermal .thermal-study-copy { padding: 26px 36px; }
+@media (max-width: 640px) {
+  #thermal .thermal-study-copy { padding: 22px; }
+}
+
+.thermal-study-figure { width: 64%; max-width: 560px; margin: 14px auto; }
+.thermal-study-figure a { display: block; }
+.thermal-study-figure img { display: block; width: 100%; height: auto; }
+
+@media (max-width: 640px) {
+  .thermal-study-figure { width: 86%; margin-block: 12px; }
+}
+
+.thermal-study-row { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); grid-template-areas: 'copy chart'; align-items: center; gap: 32px; margin-top: 28px; }
+.thermal-study-row--reverse { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); grid-template-areas: 'chart copy'; }
+.thermal-study-row > .thermal-study-paragraph { grid-area: copy; min-width: 0; }
+.thermal-study-row > .thermal-study-figure { grid-area: chart; width: 100%; max-width: 460px; margin: 0; justify-self: center; }
+@media (max-width: 760px) {
+  .camping-detail-page #outdoor-builds > .section-heading { display: block; }
+  .camping-detail-page #outdoor-builds > .section-heading h2 { font-size: 27px; }
+  .camping-detail-page #outdoor-builds > .section-heading > p { margin-top: 8px; }
+  .cabin-detail-page #wooden-builds #cabin { grid-template-columns: 1fr; }
+  .cabin-detail-page #wooden-builds #cabin .cabin-video-stack { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 14px; gap: 10px; }
+  .cabin-detail-page #wooden-builds #cabin .cabin-video-link { width: 100%; max-width: none; }
+  .cabin-detail-page #wooden-builds > .section-heading,
+  .cabin-detail-page #electronic-builds > .section-heading { display: block; }
+  .cabin-detail-page #wooden-builds > .section-heading h2,
+  .cabin-detail-page #electronic-builds > .section-heading h2 { font-size: 27px; }
+  .cabin-detail-page #wooden-builds > .section-heading > p,
+  .cabin-detail-page #electronic-builds > .section-heading > p { margin-top: 8px; }
+  .thermal-study-row, .thermal-study-row--reverse { grid-template-columns: minmax(0, 1fr); grid-template-areas: 'copy' 'chart'; gap: 16px; margin-top: 24px; }
+  .thermal-study-row > .thermal-study-figure { width: 86%; }
+}
+
+.life-outdoors-long-page .life-long-chapter > .life-long-intro-copy { padding: 26px 36px 0; color: var(--muted); font: 15px/1.8 var(--sans); }
+.life-outdoors-long-page .life-long-intro-copy p + p { margin-top: 14px; }
+.life-outdoors-long-page .life-long-intro-copy .camping-video-note { margin-top: 18px; }
+.life-outdoors-long-page .life-long-chapter > .section { padding: 30px 36px; border-top: 1px solid var(--line); }
+.life-outdoors-long-page .life-long-chapter > .section .section-heading { margin-bottom: 22px; }
+.life-outdoors-long-page .cabin-system-stack { margin-top: 22px; }
+.life-outdoors-long-page .cabin-system { padding: 22px; background: var(--white); }
+@media (max-width: 760px) {
+ .life-outdoors-long-page .life-long-chapter > .life-long-intro-copy { padding: 22px 22px 0; }
+ .life-outdoors-long-page .life-long-chapter > .section { padding: 22px; }
+}
+
+#tent .product-story-section + .product-story-section { margin-top: 24px; }
+#tent .product-story-section h4 { color: var(--rust); font: 600 11px/1.5 var(--sans); letter-spacing: .08em; }
+#tent .product-story-section p { margin-top: 7px; font: 14px/1.68 var(--sans); color: var(--muted); }
+#tent .product-story-section p + p { margin-top: 10px; }
+#tent .product-story-section .product-story-lede { color: var(--ink); font: 600 16px/1.45 var(--serif); }
+#tent .product-patent { max-width: 700px; margin: 16px 0 0; padding: 12px 16px; text-align: left; }
+#tent .product-patent .patent-line { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: flex-start; gap: 5px 10px; font-size: 13px; line-height: 1.6; text-align: left; }
+#tent .product-patent .patent-line .eyebrow { margin: 0; color: var(--rust); font: 600 10px/1.5 var(--sans); letter-spacing: .08em; }
+
+#tent .product-story-body { display: block; padding: 22px 30px; }
+#tent .product-story-copy { width: 100%; max-width: none; }
+#tent .product-story-heading { margin-bottom: 6px; }
+#tent .product-story-heading h3 { margin-top: 0; font-size: clamp(28px, 2.7vw, 34px); }
+@media (max-width: 760px) {
+  #tent .product-story-body { padding: 18px; }
+}
+
+#tent .teepee-story-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: 'copy image'; align-items: center; gap: 22px; margin-top: 16px; }
+#tent .teepee-story-row--idea { grid-template-areas: 'image copy'; }
+#tent .teepee-story-row > .product-story-section { grid-area: copy; min-width: 0; }
+#tent .teepee-story-row > .teepee-figure { grid-area: image; min-width: 0; }
+#tent .teepee-figure { margin: 0; border: 1px solid var(--line); background: var(--sage); }
+#tent .teepee-figure a { display: block; }
+#tent .teepee-figure img { display: block; width: 100%; height: auto; }
+#tent .teepee-figure figcaption { padding: 7px 10px; border-top: 1px solid var(--line); background: var(--white); font-size: 11px; line-height: 1.5; color: var(--muted); }
+#tent .teepee-result-gallery { display: grid; width: min(100%, 760px); grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 14px auto 0; }
+#tent .teepee-story-row--idea > .teepee-figure { width: 75%; max-width: 400px; justify-self: center; }
+@media (max-width: 760px) {
+ #tent .teepee-story-row, #tent .teepee-story-row--idea { grid-template-columns: minmax(0, 1fr); grid-template-areas: 'copy' 'image'; gap: 14px; }
+ #tent .teepee-story-row--idea { grid-template-areas: 'copy' 'image'; }
+ #tent .teepee-result-gallery { grid-template-columns: 1fr; gap: 12px; }
+}
+
+#tent .teepee-story-row--problem > .teepee-figure { width: 76%; max-width: 330px; justify-self: center; }
+@media (max-width: 760px) {
+  #tent .teepee-story-row--problem > .teepee-figure { width: 82%; max-width: 420px; }
+}

@@ -1,0 +1,63 @@
+.bio-league-container { max-width: 1060px; }
+.bio-league-back-row { padding-top: 18px; }
+.bio-league-hero { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(300px, .9fr); align-items: start; gap: 46px; padding: 44px 0 38px; }
+.bio-league-hero-copy { align-self: start; }
+.bio-league-hero .eyebrow,
+.bio-league-act-label .eyebrow,
+.bio-league-question > .eyebrow,
+.bio-league-after-play > .eyebrow { color: var(--rust); }
+.bio-league-hero h1 { margin-top: 17px; font-size: clamp(56px, 7vw, 78px); }
+.bio-league-title-cn { margin-top: 3px; color: var(--rust); font: 25px/1.45 var(--serif); }
+.bio-league-meta { margin-top: 15px; color: var(--muted); font-size: 10px; font-weight: 600; letter-spacing: .14em; }
+.bio-league-intro { max-width: 760px; margin-top: 17px; color: var(--muted); font-size: 15px; line-height: 1.8; }
+.bio-league-intro p + p { margin-top: 10px; }
+.bio-league-manuscript { width: 100%; margin: 0; }
+.bio-league-manuscript img { width: 100%; height: auto; }
+.bio-league-manuscript figcaption { margin-top: 7px; color: var(--muted); font: italic 11px/1.5 var(--serif); text-align: center; }
+.bio-league-manuscript--hero { width: 82%; max-width: 320px; justify-self: center; }
+.bio-league-act { display: grid; grid-template-columns: 132px minmax(0, 760px); gap: 28px; padding: 23px 0 25px; border-top: 1px solid var(--line); }
+.bio-league-act--illustrated { grid-template-columns: 132px minmax(0, 1fr) minmax(250px, 310px); align-items: start; }
+.bio-league-manuscript--act { padding-top: 3px; }
+.bio-league-act-label { padding-top: 6px; }
+.bio-league-act-content h2,
+.bio-league-question h2,
+.bio-league-after-play h2 { margin: 0; font-size: clamp(27px, 3vw, 35px); }
+.bio-league-act-content > p,
+.bio-league-question > p:not(.eyebrow),
+.bio-league-after-play > p:not(.eyebrow) { margin-top: 9px; color: var(--muted); font-size: 14px; line-height: 1.8; }
+.bio-league-quote { margin: 12px 0 0; }
+.bio-league-quote-original { color: var(--ink); font: 19px/1.75 var(--serif); }
+.bio-league-quote-translation { margin-top: 3px; color: var(--muted); font: italic 12px/1.65 var(--serif); }
+.bio-league-quote--emphasis { margin-top: 16px; padding-left: 16px; border-left: 1px solid var(--rust); }
+.bio-league-quote--emphasis .bio-league-quote-original { font-size: 22px; }
+.bio-league-curtain { margin-top: 9px !important; color: var(--ink) !important; font: italic 13px/1.6 var(--serif) !important; }
+.bio-league-question { max-width: 820px; margin: 12px auto 0; padding: 29px 0 33px; border-top: 1px solid var(--line); }
+.bio-league-question h2 { margin-top: 6px; }
+.bio-league-question .bio-league-final-question { margin-top: 14px !important; color: var(--ink) !important; font: 20px/1.65 var(--serif) !important; }
+.bio-league-after-play { max-width: 820px; margin: 0 auto; padding: 27px 0 19px; border-top: 1px solid var(--line); }
+.bio-league-after-play h2 { margin-top: 6px; }
+.bio-league-reflection { max-width: 760px; }
+.bio-league-ending { padding: 27px 0 24px; text-align: center; }
+.bio-league-ending .bio-league-quote-original { font-size: 24px; }
+.bio-league-ending .bio-league-quote-translation { margin-top: 5px; font-size: 13px; }
+.bio-league-back-row--bottom { padding: 0 0 30px; }
+@media (max-width: 720px) {
+  .bio-league-hero { grid-template-columns: minmax(0, 1fr) minmax(240px, .72fr); gap: 26px; padding: 34px 0 31px; }
+  .bio-league-act { grid-template-columns: 88px minmax(0, 1fr); gap: 19px; padding-block: 20px 22px; }
+  .bio-league-act--illustrated { grid-template-columns: 88px minmax(0, 1fr); }
+  .bio-league-act--illustrated .bio-league-manuscript { grid-column: 2; max-width: 320px; }
+  .bio-league-question { padding-block: 25px 29px; }
+}
+@media (max-width: 540px) {
+  .bio-league-hero { grid-template-columns: 1fr; }
+  .bio-league-manuscript--hero { max-width: 320px; justify-self: center; }
+  .bio-league-hero h1 { font-size: 52px; }
+  .bio-league-act { grid-template-columns: 1fr; gap: 8px; }
+  .bio-league-act--illustrated { grid-template-columns: 1fr; }
+  .bio-league-act--illustrated .bio-league-manuscript { grid-column: 1; justify-self: center; max-width: 320px; margin-top: 5px; }
+  .bio-league-act-label { padding-top: 0; }
+  .bio-league-quote-original { font-size: 17px; }
+  .bio-league-quote--emphasis .bio-league-quote-original { font-size: 20px; }
+  .bio-league-question .bio-league-final-question { font-size: 18px !important; }
+  .bio-league-ending { padding-block: 24px 20px; }
+}

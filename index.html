@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Michael Zhang — Personal Portfolio</title>
+<meta name="description" content="Michael Zhang’s personal portfolio: engineering, research, writing, games, and community.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/styles.css">
+<script src="assets/main.js" defer></script>
+<style>
+.home-page .home-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(250px, .82fr);
+  align-items: center;
+  gap: clamp(38px, 6vw, 82px);
+  padding-block: clamp(48px, 5vw, 68px) clamp(42px, 5vw, 58px);
+}
+.home-page .home-intro .eyebrow { margin-bottom: 17px; color: var(--rust); }
+.home-page .home-intro .eyebrow,
+.home-page .home-heading .eyebrow,
+.home-page .direction .eyebrow,
+.home-page .outside-assignment .eyebrow { font-size: 12px; }
+.home-page .home-intro h1 { max-width: 760px; font-size: clamp(45px, 5.3vw, 68px); }
+.home-page .home-intro .home-tagline { margin-top: 8px; font: clamp(26px, 2.7vw, 34px)/1.3 var(--serif); letter-spacing: -.025em; }
+.home-page .home-intro-copy { max-width: 680px; margin-top: 17px; color: #4f5d54; font-size: 16px; line-height: 1.65; }
+.home-page .home-intro-copy p + p { margin-top: 10px; }
+.home-page .home-photo-placeholder { display: grid; place-items: center; min-height: 250px; border: 1px solid var(--line); color: #8a9388; font: 11px/1 var(--sans); letter-spacing: .16em; }
+.home-page .home-portrait { display: flex; justify-content: center; align-items: center; margin: 0; }
+.home-page .home-portrait img { width: auto; max-width: 100%; max-height: 500px; height: auto; object-fit: contain; }
+.home-page .home-intro { padding-bottom: clamp(24px, 3vw, 34px); }
+.home-page .home-intro + .home-section { padding-top: 22px; }
+.home-page .home-section { padding-block: 40px; border-top: 1px solid var(--line); }
+.home-page .home-heading { margin-bottom: 21px; }
+.home-page .home-heading .eyebrow { margin-bottom: 8px; color: var(--rust); }
+.home-page .home-heading h2 { max-width: 780px; }
+.home-page .home-lead { max-width: 650px; margin-top: 11px; color: #536158; font-size: 15px; line-height: 1.65; }
+.home-page .direction-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(32px, 5vw, 72px); row-gap: 0; margin-top: 24px; border-top: 1px solid var(--line); }
+.home-page .direction { min-width: 0; display: flex; flex-direction: column; padding: 18px 0 21px; border-bottom: 1px solid var(--line); }
+.home-page .direction:nth-child(odd) { padding-right: clamp(12px, 2.5vw, 34px); }
+.home-page .direction:nth-child(even) { padding-left: clamp(12px, 2.5vw, 34px); border-left: 1px solid var(--line); }
+.home-page .direction .eyebrow { margin-bottom: 8px; color: var(--rust); }
+.home-page .direction h3 { max-width: 470px; font-size: clamp(27px, 2.6vw, 35px); }
+.home-page .direction-copy { max-width: 530px; margin-top: 10px; color: #536158; font-size: 15px; line-height: 1.65; }
+.home-page .direction-copy p + p { margin-top: 8px; }
+.home-page .direction .direction-button { align-self: flex-start; margin-top: auto; padding-top: 12px; min-height: 54px; font-size: 12px; background: var(--green); border-color: var(--green); }
+.home-page .direction .direction-button:hover { background: var(--ink); border-color: var(--ink); }
+.home-page .coming-soon { display: inline-block; margin-top: 12px; color: var(--muted); font-size: 12px; }
+.home-page .quiet-pause { padding-block: 42px; text-align: center; }
+.home-page .quiet-pause blockquote { font: clamp(30px, 3.9vw, 46px)/1.28 var(--serif); letter-spacing: -.025em; }
+.home-page .quiet-pause blockquote p + p { margin-top: 3px; }
+.home-page .quiet-pause .refrain { margin-top: 15px; color: #536158; font-size: 14px; line-height: 1.6; }
+.home-page .outside-assignment { display: grid; grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr); align-items: start; gap: clamp(32px, 6vw, 80px); }
+.home-page .outside-assignment .eyebrow { margin-bottom: 8px; color: var(--rust); }
+.home-page .outside-assignment h2 { max-width: 480px; font-size: clamp(34px, 3.4vw, 42px); }
+.home-page .outside-copy { max-width: 650px; color: #536158; font-size: 15px; line-height: 1.65; }
+.home-page .outside-copy p + p { margin-top: 10px; }
+.home-page .home-ending { padding-block: 40px 45px; border-top: 1px solid var(--line); }
+.home-page .home-ending h2 { max-width: 780px; font-size: clamp(30px, 3.4vw, 42px); }
+.home-page .home-ending > p { max-width: 790px; margin-top: 12px; color: #536158; font-size: 15px; line-height: 1.65; }
+.home-page .home-links { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 19px; padding-top: 10px; border-top: 1px solid var(--line); }
+.home-page .home-links a, .home-page .home-links span { display: inline-flex; align-items: center; min-height: 40px; font-size: 13px; text-decoration: none; }
+.home-page .home-links a { padding: 8px 14px; border: 1px solid var(--green); background: var(--green); color: var(--paper); text-decoration: none; }
+.home-page .home-links a:hover { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+.home-page .home-links span { color: var(--muted); }
+.home-page .site-footer { margin-top: 0; }
+@media (max-width: 760px) {
+  .home-page .home-intro { grid-template-columns: 1fr; gap: 26px; padding-block: 40px 22px; }
+  .home-page .home-intro h1 { font-size: clamp(42px, 9.5vw, 58px); }
+  .home-page .home-intro-copy { font-size: 15.5px; line-height: 1.65; }
+  .home-page .home-photo-placeholder { min-height: 190px; }
+  .home-page .home-section { padding-block: 31px; }
+  .home-page .home-intro + .home-section { padding-top: 18px; }
+  .home-page .home-heading { margin-bottom: 18px; }
+  .home-page .home-lead { font-size: 14.5px; }
+  .home-page .direction-grid { grid-template-columns: 1fr; margin-top: 20px; }
+  .home-page .direction:nth-child(odd), .home-page .direction:nth-child(even) { padding: 18px 0 19px; border-left: 0; }
+  .home-page .direction h3 { font-size: clamp(27px, 7vw, 33px); }
+  .home-page .direction-copy { font-size: 15px; line-height: 1.65; }
+  .home-page .quiet-pause { padding-block: 36px; }
+  .home-page .quiet-pause blockquote { font-size: clamp(28px, 7vw, 38px); }
+  .home-page .quiet-pause .refrain { font-size: 13.5px; }
+  .home-page .outside-assignment { grid-template-columns: 1fr; gap: 14px; }
+  .home-page .outside-assignment h2 { font-size: clamp(34px, 8vw, 40px); }
+  .home-page .outside-copy { font-size: 15px; line-height: 1.65; }
+  .home-page .home-ending { padding-block: 34px 38px; }
+  .home-page .home-ending h2 { font-size: clamp(29px, 7vw, 38px); }
+  .home-page .home-ending > p { font-size: 15px; }
+  .home-page .home-links { gap: 6px 20px; margin-top: 15px; }
+}
+</style>
+</head>
+<body class="home-page">
+<a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="container header-inner"><a class="brand" href="index.html"><span class="monogram">MZ</span><span class="brand-name">Michael Zhang<small>Personal portfolio</small></span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation">Menu</button><nav class="main-nav" id="navigation" aria-label="Main navigation">
+<a href="index.html" aria-current="page">Home</a>
+<div class="nav-group">
+  <div class="nav-parent"><a href="life-outdoors.html">Life Outdoors</a><button class="submenu-toggle" type="button" aria-expanded="false" aria-controls="life-outdoors-submenu" aria-label="Show Life Outdoors pages"><span aria-hidden="true">⌄</span></button></div>
+  <div class="nav-submenu" id="life-outdoors-submenu" hidden><a href="life-outdoors.html">Life Outdoors Overview</a><a href="adventures-we-build-together.html">Adventures We Build Together</a><a href="building-my-own-outdoor-space.html">Building My Own Outdoor Space</a></div>
+</div>
+<div class="nav-group">
+  <div class="nav-parent"><a href="research.html">Research</a><button class="submenu-toggle" type="button" aria-expanded="false" aria-controls="research-submenu" aria-label="Show Research pages"><span aria-hidden="true">⌄</span></button></div>
+  <div class="nav-submenu" id="research-submenu" hidden><a href="research.html">Research Overview</a><a href="from-camping-to-product-designs.html">From Problems to Designs</a></div>
+</div>
+<div class="nav-group">
+  <div class="nav-parent"><a href="writing.html">Writing</a><button class="submenu-toggle" type="button" aria-expanded="false" aria-controls="writing-submenu" aria-label="Show Writing pages"><span aria-hidden="true">⌄</span></button></div>
+  <div class="nav-submenu" id="writing-submenu" hidden><a href="writing.html">Writing Overview</a><a href="icarus.html">Icarus / 伊卡洛斯</a><a href="antarctic-finale.html">The Antarctic Finale / 南极终曲</a><a href="bio-league.html">Bio-League / 生物联盟</a></div>
+</div>
+<a href="games.html">Games</a>
+</nav></div></header>
+<main id="main" class="container">
+  <section class="home-intro" aria-labelledby="home-title">
+    <div>
+      <p class="eyebrow">Hello, I'm</p>
+      <h1 id="home-title">Michael Zhang</h1>
+      <p class="home-tagline">I like seeing where questions lead.</p>
+      <div class="home-intro-copy">
+        <p>Sometimes that means building something. Sometimes it means testing an idea with physics, code, or a circuit. And sometimes it means inventing an entire world just to see what happens.</p>
+        <p>A lot of what I do begins with something small—a tent pole that gets in the way, a question about heat, a game I want to make, or an idea I can't stop thinking about. Somehow, I usually end up following it much farther than I expected.</p>
+      </div>
+    </div>
+    <figure class="home-portrait"><img src="assets/images/michael-dinosaur-museum.jpg" alt="Michael looking up at a dinosaur skeleton in a museum"></figure>
+  </section>
+
+  <section class="home-section" aria-labelledby="directions-title">
+    <div class="home-heading">
+      <p class="eyebrow">Four directions</p>
+      <h2 id="directions-title">Different ideas call for different tools.</h2>
+      <p class="home-lead">The things I spend time on can look unrelated. To me, they rarely feel that way.</p>
+    </div>
+    <div class="direction-grid">
+      <article class="direction">
+        <p class="eyebrow">Life Outdoors</p>
+        <h3>Sometimes I build the answer.</h3>
+        <div class="direction-copy">
+          <p>A lot of my interest in making things started outdoors. The more time I spent camping, the more I noticed what could work differently—a pole in the wrong place, nowhere to put something I needed, or a shelter that could be simpler to use.</p>
+          <p>Sometimes I sketch another way to do it, build something, and take it outside to see if it actually works. Sometimes it does. Sometimes it doesn't. Then I usually want to know why.</p>
+        </div>
+        <a class="button direction-button" href="life-outdoors.html">Explore Life Outdoors <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="direction">
+        <p class="eyebrow">Research</p>
+        <h3>Sometimes I try to measure it.</h3>
+        <div class="direction-copy">
+          <p>A practical question about staying comfortable inside a lightweight tent led me into heat transfer, material properties, and a Python model.</p>
+          <p>I like the point where something I notice in the real world becomes a question I can test. Depending on the problem, I might end up using physics, code, a circuit, or some combination of them.</p>
+        </div>
+        <a class="button direction-button" href="research.html">Explore Research <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="direction">
+        <p class="eyebrow">Games</p>
+        <h3>Sometimes I make an idea playable.</h3>
+        <div class="direction-copy">
+          <p>A friend showed me Scratch in elementary school. My mother bought me a book, and I started figuring it out on my own—finding websites, trying things, and making small games.</p>
+          <p>Making a game feels different from solving a programming problem. No one gives me the question. I have to decide what I want to make, invent the rules, and then figure out how to make it work.</p>
+        </div>
+        <a class="button direction-button" href="games.html">Explore Games <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="direction">
+        <p class="eyebrow">Writing</p>
+        <h3>Some questions can't be solved with a model.</h3>
+        <div class="direction-copy">
+          <p>That is one reason I keep coming back to science fiction.</p>
+          <p>A story lets me take a question about freedom, identity, technology, memory, or what makes a life meaningful, build a world around it, and see where it leads.</p>
+          <p>I don't usually find an answer by the end. Sometimes I just end up with a better question.</p>
+        </div>
+        <a class="button direction-button" href="writing.html">Explore Writing <span aria-hidden="true">→</span></a>
+      </article>
+    </div>
+  </section>
+
+  <section class="home-section quiet-pause" aria-label="A quiet pause">
+    <blockquote>
+      <p>I like questions with answers.</p>
+      <p>I also like the ones without them.</p>
+    </blockquote>
+    <p class="refrain">Some can be built.<br>Some can be tested.<br>Some can be coded.<br>Some need a world of their own.</p>
+  </section>
+
+  <section class="home-section outside-assignment" aria-labelledby="outside-title">
+    <div>
+      <p class="eyebrow">Outside the assignment</p>
+      <h2 id="outside-title">Not everything needs to become a project.</h2>
+    </div>
+    <div class="outside-copy">
+      <p>I like being outdoors. I make games because I want to play with an idea. I write stories even when no one is going to read them.</p>
+      <p>Not everything I enjoy needs a result. Some things are worth doing simply because I want to keep doing them.</p>
+    </div>
+  </section>
+
+  <section class="home-ending" aria-labelledby="ending-title">
+    <h2 id="ending-title">I'm still figuring out where all of this will lead.</h2>
+    <p>For now, I want to keep learning how things work, keep making things of my own, and keep finding time for ideas that don't have an obvious use—or an easy answer.</p>
+    <nav class="home-links" aria-label="Explore the site">
+      <a class="button" href="life-outdoors.html">Life Outdoors</a>
+      <a class="button" href="research.html">Research</a>
+      <a class="button" href="writing.html">Writing</a>
+      <a class="button" href="games.html">Games</a>
+    </nav>
+  </section>
+
+</main>
+<footer class="site-footer"><div class="container"><div class="footer-top"><div><p class="eyebrow light">Engineering · Research · Stories</p><h2>Michael Zhang.</h2></div><div class="footer-links"><a href="research.html">Research</a><a href="life-outdoors.html">Life Outdoors</a><a href="writing.html">Writing</a><a href="games.html">Games</a></div></div><div class="footer-bottom"><span>Michael Zhang · Personal portfolio</span><a href="#main">Back to top ↑</a></div></div></footer>
+</body>
+</html>
