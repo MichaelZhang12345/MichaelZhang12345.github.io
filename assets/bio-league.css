@@ -13,7 +13,7 @@
 .bio-league-intro p + p { margin-top: 10px; }
 .bio-league-manuscript { width: 100%; margin: 0; }
 .bio-league-manuscript img { width: 100%; height: auto; }
-.bio-league-manuscript figcaption { margin-top: 7px; color: var(--muted); font: italic 11px/1.5 var(--serif); text-align: center; }
+.bio-league-manuscript figcaption { margin-top: 7px; color: var(--muted); font-family: var(--serif); font-style: italic; line-height: 1.5; text-align: center; }
 .bio-league-manuscript--hero { width: 82%; max-width: 320px; justify-self: center; }
 .bio-league-act { display: grid; grid-template-columns: 132px minmax(0, 760px); gap: 28px; padding: 23px 0 25px; border-top: 1px solid var(--line); }
 .bio-league-act--illustrated { grid-template-columns: 132px minmax(0, 1fr) minmax(250px, 310px); align-items: start; }

@@ -1,19 +1,26 @@
 /* Inventions overview and its three project detail pages. */
 .inv-overview-intro { padding-top: 36px; padding-bottom: 24px; }
+.life-outdoors-page .inv-overview-intro { display: grid; grid-template-columns: minmax(0, 1fr) 245px; column-gap: 36px; align-items: center; }
 .inv-overview-intro h1 { margin-top: 0; font-size: clamp(58px, 4.5vw, 64px); }
+.life-outdoors-page .inv-overview-intro h1 { grid-column: 1 / -1; }
 .inv-overview-description { max-width: 860px; margin-top: 14px; }
+.life-outdoors-page .inv-overview-description { grid-column: 1; }
 .inv-overview-description p { color: var(--muted); font: 15px/1.75 var(--sans); }
 .inv-overview-nav { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); }
+.life-outdoors-page .inv-overview-nav { grid-column: 2; display: grid; gap: 2px; align-content: center; margin-top: 14px; padding: 0; border-top: 0; }
 .inv-overview-nav a { display: inline-flex; align-items: center; gap: 8px; min-height: 38px; font-size: 11px; text-decoration: none; }
 .inv-overview-nav span { color: var(--rust); font: 16px var(--serif); }
 .inv-overview-nav a:hover { color: var(--rust); }
 .inv-overview-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 48px; padding-bottom: 72px; }
+.life-outdoors-page .inv-overview-grid { gap: 30px; }
 .inv-overview-card { min-width: 0; border: 1px solid var(--line); background: var(--white); box-shadow: 0 12px 32px #20352e08; }
 .inv-overview-card:nth-child(1) { background: #f4eee3; }
 .inv-overview-card:nth-child(3) { background: #edf1e7; }
 .inv-chapter-heading { display: flex; align-items: center; gap: 26px; padding: 28px 36px; border-bottom: 1px solid var(--line); }
+.life-outdoors-page .inv-chapter-heading { padding-block: 18px; }
 .inv-chapter-number { flex-shrink: 0; color: var(--rust); font: 58px/1 var(--serif); letter-spacing: -.06em; }
 .inv-chapter-heading .eyebrow { margin-bottom: 9px; }
+.life-outdoors-page .inv-chapter-heading .eyebrow { margin-bottom: 5px; color: var(--rust); }
 .inv-chapter-heading h2 { font-size: clamp(30px, 3.5vw, 42px); }
 .inv-overview-row { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); grid-template-areas: 'visual copy'; gap: 48px; align-items: center; padding: 36px; }
 .inv-overview-card--reverse .inv-overview-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); grid-template-areas: 'copy visual'; }
@@ -24,7 +31,7 @@
 .inv-overview-media > img { width: 100%; height: 100%; object-fit: cover; }
 .inv-video-preview { background: #192820; }
 .inv-video-preview > img { object-fit: contain; }
-.inv-overview-figure > figcaption { padding: 13px 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+.inv-overview-figure > figcaption { padding: 13px 18px; border-top: 1px solid var(--line); color: var(--muted); }
 .inv-preview-play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: grid; place-items: center; width: 60px; height: 60px; padding-left: 4px; border: 1px solid #ffffffa0; border-radius: 50%; background: #20352ec9; color: white; font-size: 21px; box-shadow: 0 5px 20px #0003; }
 .inv-video-preview:hover .inv-preview-play { background: var(--rust); }
 .inv-overview-copy { grid-area: copy; min-width: 0; padding: 14px 4px; }
@@ -44,7 +51,7 @@
 #camping .inv-overview-summary + .inv-overview-summary { margin-top: 12px; }
 #camping .inv-overview-copy .button { margin-top: 22px; }
 #camping .inv-overview-row { padding-block: 26px; }
-#camping .inv-overview-visual { width: 92%; justify-self: end; }
+#camping .inv-overview-visual { width: 76%; justify-self: end; }
 #camping .inv-overview-copy { padding: 0; }
 #camping .inv-video-preview { aspect-ratio: 16 / 9; }
 #camping .inv-video-preview > img { object-fit: cover; object-position: center; }
@@ -63,7 +70,8 @@
 #designs .inv-overview-copy { padding: 0; }
 #designs .inv-overview-copy .button { margin-top: 24px; }
 #designs .inv-overview-row { padding-block: 26px; }
-#designs .inv-overview-visual { width: 84%; justify-self: end; }
+#designs .inv-overview-visual { width: 78%; justify-self: end; }
+#designs .inv-overview-figure { width: 84%; margin-inline: auto; }
 #designs .inv-overview-media { aspect-ratio: 3 / 2; }
 #designs .inv-overview-media > img { object-fit: contain; }
 #designs .inv-product-thumbs { margin-top: 12px; }
@@ -71,13 +79,13 @@
 .inv-product-thumbs { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 16px 0 0 24px; }
 .inv-product-thumbs figure { min-width: 0; padding: 8px; border: 1px solid var(--line); background: var(--white); box-shadow: 0 6px 14px #20352e0d; }
 .inv-product-thumbs img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
-.inv-product-thumbs figcaption { margin-top: 8px; color: var(--muted); font-size: 10px; }
-.inv-thumb-title { display: block; font-size: 11px; font-weight: 600; color: var(--ink); }
-.inv-thumb-description { display: block; margin-top: 4px; font-size: 10px; line-height: 1.5; }
+.inv-product-thumbs figcaption { margin-top: 8px; color: var(--muted); }
+.inv-thumb-title { display: block; font-weight: 600; color: var(--ink); }
+.inv-thumb-description { display: block; margin-top: 4px; line-height: 1.5; }
 .inv-small-video { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; aspect-ratio: 16 / 9; background: var(--sage); color: var(--green); text-decoration: none; }
 .inv-small-video > span:last-child { font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
 .inv-small-video-play { display: grid; place-items: center; width: 38px; height: 38px; padding-left: 3px; border: 1px solid #92a18b; border-radius: 50%; font-size: 14px; }
-.inv-small-video:hover { background: var(--sand); color: var(--rust); }
+a.inv-small-video:hover { background: var(--sand); color: var(--rust); }
 .inv-small-video--poster { position: relative; display: block; overflow: hidden; background: var(--ink); }
 .inv-small-video--poster > img { width: 100%; height: 100%; object-fit: cover; }
 .inv-small-video--poster .inv-small-video-play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); background: #20352ed9; border-color: #ffffffa0; color: white; font-size: 16px; }
@@ -94,7 +102,11 @@
   .inv-overview-copy .inv-overview-summary { font-size: 20px; }
 }
 @media (max-width: 640px) {
+  .life-outdoors-page .inv-overview-intro { grid-template-columns: minmax(0, 1fr); }
+  .life-outdoors-page .inv-overview-intro h1, .life-outdoors-page .inv-overview-description, .life-outdoors-page .inv-overview-nav { grid-column: 1; }
+  .life-outdoors-page .inv-overview-nav { display: flex; flex-wrap: wrap; gap: 6px 20px; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); }
   #designs .inv-overview-visual { width: 100%; justify-self: stretch; }
+  #designs .inv-overview-figure { width: 100%; }
   #outdoor .inv-overview-row { grid-template-columns: minmax(0, 1fr); grid-template-areas: 'visual' 'copy'; gap: 22px; padding: 22px; }
   #outdoor .inv-overview-visual { width: 100%; }
   #camping .inv-overview-visual { width: 100%; justify-self: stretch; }
@@ -133,7 +145,7 @@
 .product-story-media figure { min-width: 0; border: 1px solid var(--line); background: var(--sage); }
 .product-story-media a { display: block; }
 .product-story-media img { width: 100%; aspect-ratio: 16 / 9; object-fit: contain; }
-.product-story-media figcaption { padding: 12px 14px; border-top: 1px solid var(--line); background: var(--white); font-size: 11px; color: var(--muted); }
+.product-story-media figcaption { padding: 12px 14px; border-top: 1px solid var(--line); background: var(--white); color: var(--muted); }
 @media (max-width: 760px) {
   .product-story-body { grid-template-columns: 1fr; gap: 24px; padding: 22px; align-items: start; }
   .product-story-copy, .product-story-media { align-self: start; }
@@ -167,7 +179,7 @@
 .cabin-detail-page #wooden-builds .card-copy { padding: 20px 22px; }
 .cabin-detail-page #wooden-builds .inv-card h3 { font-size: 23px; line-height: 1.25; }
 .cabin-detail-page #wooden-builds .inv-card--featured h3 { font-size: 30px; }
-.cabin-detail-page #wooden-builds .card-copy > .cabin-wood-kicker { margin-top: 0; margin-bottom: 12px; font-size: 10px; line-height: 1.6; color: var(--rust); }
+.cabin-detail-page #wooden-builds .card-copy > .cabin-wood-kicker { margin-top: 0; margin-bottom: 12px; line-height: 1.6; color: var(--rust); }
 .cabin-detail-page #wooden-builds .card-copy > .cabin-wood-story { margin-top: 12px; font-size: 13px; line-height: 1.8; }
 .cabin-detail-page #wooden-builds #cabin .cabin-wood-story + .cabin-wood-story { margin-top: 22px; }
 .cabin-detail-page #wooden-builds .inv-card-actions { padding-top: 16px; }
@@ -178,7 +190,7 @@
 #solar .cabin-system-heading, #refrigerator .cabin-system-heading { border-bottom: 0; }
 #solar .cabin-system-heading, #refrigerator .cabin-system-heading { padding-bottom: 8px; }
 #solar .cabin-system-body, #refrigerator .cabin-system-body { padding-top: 14px; }
-.cabin-system-heading .eyebrow { margin: 0; color: var(--rust); font-size: 10px; line-height: 1.6; letter-spacing: .06em; }
+.cabin-system-heading .eyebrow { margin: 0; color: var(--rust); line-height: 1.6; letter-spacing: .06em; }
 .cabin-system-heading h3 { margin-top: 8px; font-size: 30px; line-height: 1.25; }
 .cabin-system-body { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 32px; align-items: center; padding: 28px; }
 .cabin-system-video, .cabin-system-diagram { min-width: 0; }
@@ -196,7 +208,7 @@
 .cabin-system-video .card-media > img { width: 100%; height: 100%; object-fit: cover; }
 .cabin-diagram { background: white; }
 .cabin-diagram img { width: 100%; height: 100%; object-fit: contain; }
-.cabin-system-video figcaption, .cabin-system-diagram figcaption { padding: 8px 16px; border-top: 1px solid var(--line); font-size: 12px; }
+.cabin-system-video figcaption, .cabin-system-diagram figcaption { padding: 8px 16px; border-top: 1px solid var(--line); }
 .cabin-system-video .text-link, .cabin-system-diagram .text-link { font-size: 12px; }
 .cabin-cup-placeholder { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); border: 1px dashed #abb8a3; background: #edf0e5; }
 .cabin-cup-placeholder .inv-placeholder { min-height: 160px; border-bottom: 0; }
@@ -237,7 +249,7 @@
 .camping-detail-page #outdoor-builds > .section-heading h2 { margin: 0; font-size: 32px; line-height: 1.2; }
 .camping-detail-page #outdoor-builds > .section-heading > p { max-width: none; font-size: 12px; }
 .camping-detail-page #outdoor-builds .card-copy { padding: 18px 20px; }
-.camping-detail-page #outdoor-builds .card-copy > .eyebrow { margin-top: 0; margin-bottom: 10px; font-size: 10px; }
+.camping-detail-page #outdoor-builds .card-copy > .eyebrow { margin-top: 0; margin-bottom: 10px; }
 .camping-detail-page #outdoor-builds .card-copy > p:not(.eyebrow) { margin-top: 10px; font-size: 13px; line-height: 1.75; }
 .camping-detail-page #outdoor-builds .inv-card h3 { font-size: 23px; line-height: 1.2; }
 .camping-detail-page #outdoor-builds .inv-card--featured h3 { font-size: 30px; }
@@ -263,7 +275,7 @@
 .inv-pending { color: var(--muted); font-size: 11px; min-height: 44px; display: flex; align-items: center; }
 .inv-draft { color: var(--muted); }
 .inv-card .card-copy > p { font-size: 14px; line-height: 1.85; }
-.inv-card .card-copy > .inv-priority { color: var(--rust); font-size: 10px; margin-top: 0; margin-bottom: 12px; }
+.inv-card .card-copy > .inv-priority { color: var(--rust); font-size: 13px; margin-top: 0; margin-bottom: 12px; }
 .inv-card--featured { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 .inv-card--featured .card-media { aspect-ratio: auto; min-height: 300px; }
 .inv-card--featured .card-media > img { width: 100%; height: 100%; object-fit: cover; }
@@ -291,12 +303,15 @@
 .thermal-study-copy > .thermal-study-note { margin-top: 24px; color: var(--muted); font-size: 12px; line-height: 1.7; }
 
 #designs .inv-chapter-heading h2, #thermal .inv-chapter-heading h2 { font-size: clamp(28px, 3.5vw, 42px); }
-#designs .inv-chapter-heading .eyebrow, #thermal .inv-chapter-heading .eyebrow { margin-bottom: 9px; }
+#designs .inv-chapter-heading .eyebrow, #thermal .inv-chapter-heading .eyebrow { margin-bottom: 6px; }
 
 .research-overview-card, .research-overview-card:nth-child(1) { width: 100%; background: #f4eee3; }
+.research-page .inv-overview-grid { gap: 30px; }
+.research-page .research-overview-card .inv-chapter-heading { padding-block: 16px; }
 #thermal .thermal-study-copy { padding: 26px 36px; }
 @media (max-width: 640px) {
   #thermal .thermal-study-copy { padding: 22px; }
+  .research-page .inv-overview-grid { gap: 22px; }
 }
 
 .thermal-study-figure { width: 64%; max-width: 560px; margin: 14px auto; }
@@ -341,13 +356,13 @@
 }
 
 #tent .product-story-section + .product-story-section { margin-top: 24px; }
-#tent .product-story-section h4 { color: var(--rust); font: 600 11px/1.5 var(--sans); letter-spacing: .08em; }
+#tent .product-story-section h4 { color: var(--rust); font: 600 13px/1.5 var(--sans); letter-spacing: .08em; }
 #tent .product-story-section p { margin-top: 7px; font: 14px/1.68 var(--sans); color: var(--muted); }
 #tent .product-story-section p + p { margin-top: 10px; }
 #tent .product-story-section .product-story-lede { color: var(--ink); font: 600 16px/1.45 var(--serif); }
 #tent .product-patent { max-width: 700px; margin: 16px 0 0; padding: 12px 16px; text-align: left; }
 #tent .product-patent .patent-line { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: flex-start; gap: 5px 10px; font-size: 13px; line-height: 1.6; text-align: left; }
-#tent .product-patent .patent-line .eyebrow { margin: 0; color: var(--rust); font: 600 10px/1.5 var(--sans); letter-spacing: .08em; }
+#tent .product-patent .patent-line .eyebrow { margin: 0; color: var(--rust); font-family: var(--sans); font-weight: 600; line-height: 1.5; letter-spacing: .08em; }
 
 #tent .product-story-body { display: block; padding: 22px 30px; }
 #tent .product-story-copy { width: 100%; max-width: none; }
@@ -364,7 +379,7 @@
 #tent .teepee-figure { margin: 0; border: 1px solid var(--line); background: var(--sage); }
 #tent .teepee-figure a { display: block; }
 #tent .teepee-figure img { display: block; width: 100%; height: auto; }
-#tent .teepee-figure figcaption { padding: 7px 10px; border-top: 1px solid var(--line); background: var(--white); font-size: 11px; line-height: 1.5; color: var(--muted); }
+#tent .teepee-figure figcaption { padding: 7px 10px; border-top: 1px solid var(--line); background: var(--white); line-height: 1.5; color: var(--muted); }
 #tent .teepee-result-gallery { display: grid; width: min(100%, 760px); grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 14px auto 0; }
 #tent .teepee-story-row--idea > .teepee-figure { width: 75%; max-width: 400px; justify-self: center; }
 @media (max-width: 760px) {
